@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="" />
+    <title>Dr. Tiago Marinho | Psiquiatra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a4c7e;
+            --secondary-color: #0e2c4b;
+            --accent-color: #f0f4f8;
+            --text-color: #2a3f54;
+            --light-text: #4a5568;
+            --white: #fff;
+            --max-width: 1200px;
+            --border-radius: 6px;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .credentials {
+            margin-top: 2rem;
+        }
+
+        .credentials h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .credentials ul {
+            list-style: none;
+        }
+
+        .credentials li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .credentials li::before {
+            content: '🔹';
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Articles Section */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content p {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 0.25rem;
+        }
+
+        /* Treatment Section */
+        .treatment {
+            background-color: var(--accent-color);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .treatment-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .treatment p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Consultation Section */
+        .consultation-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .consultation-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .consultation-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .consultation-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .consultation-card p {
+            color: var(--light-text);
+        }
+
+        /* Testimonials Section */
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .testimonial {
+            text-align: center;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            padding: 15px;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Form */
+        .contact {
+            background-color: var(--accent-color);
+            padding: 4rem 1rem;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer-container p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-nav {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Dr. Tiago Marinho</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#quem-sou">Quem Sou</a></li>
+                    <li><a href="#artigos">Artigos</a></li>
+                    <li><a href="#tratamento">Tratamento</a></li>
+                    <li><a href="#consultas">Consultas</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                </ul>
+            </nav>
+            <a href="#contato" class="cta-button">Agendar Consulta</a>
+        </div>
+    </header>
+
+    <a href="https://wa.me/5511913491842" class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h2>Cuidando da sua saúde mental com seriedade e profissionalismo</h2>
+            <p>Atendimento psiquiátrico especializado, baseado em evidências científicas, presencial em São Paulo ou
+                online para todo o Brasil e brasileiros no exterior</p>
+            <a href="#contato" class="cta-button">Agende sua consulta</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="quem-sou" class="container">
+        <h2 class="section-title">Quem Sou Eu</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="./img/sideImage.jpg" alt="Dr. Tiago Marinho">
+            </div>
+            <div class="about-text">
+                <p><strong>Olá! Muito prazer!</strong></p>
+                <p>Sou o Dr. Tiago Marinho, médico psiquiatra com ampla experiência no diagnóstico e tratamento de
+                    transtornos mentais, como TDAH, depressão, ansiedade, transtornos do sono, transtorno bipolar,
+                    esquizofrenia, transtornos de personalidade, alimentares, entre outros.</p>
+                <p>Ofereço um atendimento humanizado e individualizado, buscando sempre o bem-estar e a qualidade de
+                    vida de cada paciente.</p>
+
+                <div class="credentials">
+                    <h3>Formação e experiência:</h3>
+                    <ul>
+                        <li>Graduação em Medicina pela Universidade Federal do Ceará</li>
+                        <li>Residência em Psiquiatria pela UNISA – São Paulo</li>
+                        <li>Pós-graduações em Psiquiatria e TDAH</li>
+                        <li>Médico concursado em São Paulo com mais de 3.500 atendimentos realizados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="artigos" class="container">
+        <h2 class="section-title">Artigos e Conteúdos</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./img/depressao-edited.png" alt="foto artigo 1">
+                </div>
+                <div class="article-content">
+                    <h3>Depressão: Sintomas, Causas e Tratamento</h3>
+                    <p>
+                        A depressão vai além da tristeza e pode causar fadiga, insônia, perda de interesse e
+                        dificuldades de concentração.
+                        Fatores genéticos, químicos e ambientais influenciam seu surgimento.
+                    </p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./img/sono-edited.png" alt="foto artigo 2">
+                </div>
+                <div class="article-content">
+                    <h3>Insônia: Como Melhorar seu Sono</h3>
+                    <p>
+                        Dificuldade para dormir pode ser causada por estresse, uso de telas e hábitos irregulares.
+                        A insônia afeta concentração, humor e saúde cardiovascular.
+                        Melhorar a higiene do sono,
+                        evitar cafeína e eletrônicos à noite e manter horários regulares pode ajudar.
+                    </p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./img/tdah.png" alt="foto artigo 3">
+                </div>
+                <div class="article-content">
+                    <h3>TDAH em Adultos: Sintomas, como Identificar e tratamento</h3>
+                    <p>
+                        O TDAH pode afetar trabalho, finanças e relacionamentos. Sintomas como desatenção,
+                        impulsividade e desorganização são comuns.
+                        O tratamento inclui medicação, terapia e mudanças na rotina.
+                        Busque um especialista e melhore sua qualidade de vida!.
+                    </p>
+                    <a href="#" class="read-more">Ler mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Section -->
+    <section id="tratamento" class="treatment">
+        <div class="treatment-container">
+            <h2 class="section-title">Tratamento Baseado em Evidências</h2>
+            <p>O tratamento psiquiátrico não se resume à medicação. Minha abordagem é fundamentada em evidências
+                científicas, combinando intervenções terapêuticas, mudanças no estilo de vida e, quando necessário,
+                tratamento farmacológico adequado.</p>
+            <p>Se você enfrenta dificuldades emocionais ou suspeita de algum transtorno mental, estou aqui para fornecer
+                um diagnóstico preciso e um plano de tratamento eficaz. Vamos juntos construir um caminho para sua saúde
+                mental.</p>
+            <a href="#contato" class="cta-button">Agende sua consulta</a>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section id="consultas" class="container">
+        <h2 class="section-title">Como Funcionam as Consultas</h2>
+        <div class="consultation-cards">
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-building"></i></div>
+                <h3>Consulta Presencial</h3>
+                <p>Atendimento em consultório em São Paulo, com ambiente discreto e profissional.</p>
+            </div>
+
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-laptop-medical"></i></div>
+                <h3>Consulta Online</h3>
+                <p>Atendimento por telemedicina para todo o Brasil e brasileiros no exterior.</p>
+            </div>
+
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-file-medical"></i></div>
+                <h3>Receitas e Atestados</h3>
+                <p>Receitas simples e atestados são enviados digitalmente por WhatsApp, com assinatura digital válida.
+                </p>
+            </div>
+
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-pills"></i></div>
+                <h3>Medicamentos Controlados</h3>
+                <p>Prescrição de medicamentos controlados com envio por carta registrada, SEDEX ou Uber (SP).</p>
+            </div>
+
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>Brasileiros no Exterior</h3>
+                <p>Atendimento a brasileiros residentes no exterior, principalmente na União Europeia.</p>
+            </div>
+
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-language"></i></div>
+                <h3>Consultas em Inglês</h3>
+                <p>Disponibilidade de atendimento em inglês (consultar valor adicional).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="container">
+        <h2 class="section-title">Avaliações de Pacientes</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial">
+                <p>"Dr. Tiago é um excelente profissional. Muito atencioso e dedicado. Desde que iniciei o tratamento
+                    com ele, minha qualidade de vida melhorou significativamente. Recomendo a todos que precisam de
+                    ajuda psiquiátrica!"</p>
+                <div class="testimonial-author">- Mariana S.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Qual a diferença entre consulta online e presencial? <i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>A principal diferença está no ambiente da consulta. Na consulta presencial, o atendimento ocorre
+                        no consultório em São Paulo. Já na consulta online, utilizo uma plataforma segura de
+                        telemedicina, permitindo o atendimento a distância. A qualidade da avaliação e orientação é a
+                        mesma em ambas as modalidades.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Como funciona o envio de receitas? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Receitas simples e atestados são enviados digitalmente por WhatsApp, com assinatura digital
+                        válida e aceita em todo território nacional. Para medicamentos controlados, as receitas são
+                        enviadas por carta registrada, SEDEX ou Uber (para pacientes em São Paulo, consultar
+                        disponibilidade).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Quais são as formas de pagamento aceitas? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Aceito pagamentos via Pix, transferência bancária, cartões de crédito e débito. Para pacientes no
+                        exterior, também aceito PayPal e transferências internacionais.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">A consulta online é segura? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Sim, todas as consultas online são realizadas por meio de plataformas seguras, com criptografia e
+                        que atendem às normas do Conselho Federal de Medicina para telemedicina, garantindo total
+                        privacidade e confidencialidade.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Qual o tempo de retorno após a primeira consulta? <i
+                        class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>O retorno varia de acordo com cada caso e tratamento proposto. Geralmente, o primeiro retorno
+                        ocorre entre 15 e 30 dias após a consulta inicial, para avaliarmos a resposta ao tratamento.
+                        Após a estabilização, os retornos podem ser espaçados conforme a necessidade individual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Agende sua Consulta</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="consultation-type">Tipo de Consulta</label>
+                    <select id="consultation-type" name="consultation-type" class="form-control" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="presencial">Presencial (São Paulo)</option>
+                        <option value="online">Online (Telemedicina)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensagem (opcional)</label>
+                    <textarea id="message" name="message" class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Solicitar Agendamento</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#quem-sou">Quem Sou</a></li>
+                    <li><a href="#artigos">Artigos</a></li>
+                    <li><a href="#tratamento">Tratamento</a></li>
+                    <li><a href="#consultas">Consultas</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                </ul>
+            </nav>
+
+            <p>&copy; 2025 Dr. Tiago Marinho - CRM/SP 256758 | Todos os direitos reservados</p>
+            <p>Este site não substitui a consulta com um profissional de saúde.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
